@@ -5,7 +5,7 @@ import socket
 app = Flask(__name__)
 
 # Настройки твоего CS 1.6 сервера
-SERVER_ADDRESS = ("IP_СЕРВЕРА", ПОРТ)  # например ("127.0.0.1", 27015)
+SERVER_ADDRESS = ("62.122.215.81", 27015)  # например ("127.0.0.1", 27015)
 
 @app.route("/status")
 def status():
