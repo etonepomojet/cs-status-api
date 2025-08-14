@@ -4,8 +4,7 @@ import socket
 
 app = Flask(__name__)
 
-# Настройки твоего CS 1.6 сервера
-SERVER_ADDRESS = ("62.122.215.81", 27015)  # например ("127.0.0.1", 27015)
+SERVER_ADDRESS = ("62.122.215.81", 27015)  # замените на свой IP и порт
 
 @app.route("/status")
 def status():
@@ -14,9 +13,9 @@ def status():
 @app.route("/server-info")
 def server_info():
     try:
-        with ServerQuerier(SERVER_ADDRESS, timeout=3) as server:
-            info = server.get_info()
-            players = server.get_players()
+        with ServerQuerier(SERVER_ADDRESS) as server:
+            info = server.info()      # заменено с get_info()
+            players = server.players()  # заменено с get_players()
 
         return jsonify({
             "server_name": info["server_name"],
